@@ -18,13 +18,13 @@ const registerUser = asyncHandler(async (req, res, next) => {
 
     // Find if user already exists
     let userExists;
-    try{
-      userExists =  await User.findOne({ email: email });
-    }catch(error){
-      return console.error(error.message);
+    try {
+        userExists = await User.findOne({ email: email });
+    } catch (error) {
+        return console.error(error.message);
     }
 
-    if(userExists){
+    if (userExists) {
         res.status(400);
         throw new Error('User already exists');
     }
@@ -37,12 +37,12 @@ const registerUser = asyncHandler(async (req, res, next) => {
 
     // Create a new user
     const user = new User({
-        name, 
+        name,
         email,
         password: hashedPassword
     });
 
-    try{
+    try {
 
         await user.save();
         res.status(201);
@@ -53,7 +53,7 @@ const registerUser = asyncHandler(async (req, res, next) => {
             token: generateToken(user._id)
         })
         console.log('User Created Successfully');
-    }catch(error){
+    } catch (error) {
         res.status(400);
         throw new Error('Invalid user data');
     }
@@ -69,7 +69,7 @@ const loginUser = asyncHandler(async (req, res) => {
     const user = await User.findOne({ email: email });
 
     // Checking user and it's password
-    if(user && bcrypt.compareSync(password, user.password)) {
+    if (user && bcrypt.compareSync(password, user.password)) {
         res.status(200);
         res.json({
             _id: user._id,
@@ -77,15 +77,29 @@ const loginUser = asyncHandler(async (req, res) => {
             email: user.email,
             token: generateToken(user._id)
         })
-    }else{
+    } else {
         res.status(401);
         throw new Error(`Invalid Credentials`);
     }
 })
 
+
+// @desc get current user
+// @route /api/users/me
+// @access private
+// GET request : we fetch current user data
+const getMe = asyncHandler(async (req, res) => {
+    const user = {
+        name: req.user.name,
+        email: req.user.email,
+        id: req.user.id,
+    }
+    res.status(200).json(user);
+})
+
 // Token Generator
 const generateToken = (id) => {
-    return jwt.sign({id}, process.env.JWT_SECRET, {
+    return jwt.sign({ id }, process.env.JWT_SECRET, {
         expiresIn: '30d'
     });
 }
@@ -93,5 +107,6 @@ const generateToken = (id) => {
 
 module.exports = {
     registerUser,
-    loginUser
+    loginUser,
+    getMe
 }
