@@ -8,7 +8,7 @@ import { FaPlus } from "react-icons/fa";
 import BackButton from "../components/BackButton";
 import NoteItem from "../components/NoteItem";
 import Spinner from "../components/Spinner";
-import { getNotes, createNote, reset as notesReset } from "../features/notes/noteSlice";
+import { getNotes, createNote } from "../features/notes/noteSlice";
 import { getTicket, closeTicket } from "../features/tickets/ticketSlice";
 
 const customStyles = {

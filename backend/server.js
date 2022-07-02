@@ -1,3 +1,4 @@
+const path = require('path');
 const express = require('express');
 const app = express();
 const dotenv = require('dotenv').config();
@@ -18,13 +19,27 @@ app.use(express.urlencoded({ extended: false }))
 app.use(express.json());
 
 app.get('/', (req, res) => {
-    res.status(200).json({ sucess: true })
+    res.status(200).json({ messgage: 'Welcome to the Support Desk API' })
 })
 
 // Routes
 app.use('/api/users', userRoutes);
 app.use('/api/tickets', ticketRoutes);
 app.use(errorHandler);
+
+// Server frontend
+if (process.env.NODE_ENV === 'production') {
+    // Set build folder as static
+    app.use(express.static(path.join(__dirname, '../frontend/build')));
+
+    app.get('*', (req, res) => {
+        res.sendFile(__dirname, '../', 'frontend', 'build', 'index.html')
+    })
+}else{
+    app.get('/', (req, res) => {
+        res.status(200).json({ messgage: 'Welcome to the Support Desk API' })    
+    })
+}
 
 app.listen(process.env.PORT, () => {
     console.log('listening on port ' + process.env.PORT);
