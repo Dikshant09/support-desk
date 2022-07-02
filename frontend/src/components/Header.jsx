@@ -11,13 +11,13 @@ const Header = () => {
   const onLogout = () => {
     dispatch(logout());
     dispatch(reset());
-    navigate('/');
+    navigate('/home');
   }
   
   return (
     <div className="header">
       <div className="logo">
-        <Link to="/">Support Desk</Link>
+        <Link to="/home">Support Desk</Link>
       </div>
       <ul>
         {user ? (
