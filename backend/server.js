@@ -18,10 +18,6 @@ app.use(express.urlencoded({ extended: false }))
 // Parse json
 app.use(express.json());
 
-app.get('/', (req, res) => {
-    res.status(200).json({ messgage: 'Welcome to the Support Desk API' })
-})
-
 // Routes
 app.use('/api/users', userRoutes);
 app.use('/api/tickets', ticketRoutes);

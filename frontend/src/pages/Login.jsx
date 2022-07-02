@@ -29,7 +29,7 @@ const Login = () => {
 
     // Redirect when logged in
     if (isSuccess || user) {
-      navigate("/home");
+      navigate("/");
     }
 
     dispatch(reset());

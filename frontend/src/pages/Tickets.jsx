@@ -31,7 +31,7 @@ const Tickets = () => {
 
   return (
     <>
-        <BackButton url="/home" /> 
+        <BackButton url="/" /> 
         <h1>Tickets</h1>
         <div className="tickets">
             <div className="ticket-headings">
