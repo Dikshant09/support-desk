@@ -1,4 +1,3 @@
-const { response } = require('express');
 const asyncHandler = require('express-async-handler');
 
 const Ticket = require('../models/ticketModel');
