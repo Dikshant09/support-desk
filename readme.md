@@ -1,5 +1,5 @@
 # Note
-Heroku stopped their free tier and so my heroku app is down now, but I have uploaded on Render. <br>
+Heroku stopped their free tier, so my heroku app is down now, but I have uploaded on Render. <br>
 So now this is the updated and working link <a href = "https://support-desk-d5y5.onrender.com/">Support Desk</a>
 
 # Support Desk
