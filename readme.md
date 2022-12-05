@@ -2,6 +2,9 @@
 Heroku stopped their free tier, so my heroku app is down now, but I have uploaded on Render. <br>
 So now this is the updated and working link <a href = "https://support-desk-d5y5.onrender.com/">Support Desk</a>
 
+- [Frontend Repo](https://github.com/Dikshant09/supportdesk-frontend)
+- [Backend Repo](https://github.com/Dikshant09/supportdesk-backend)
+
 # Support Desk
 - Support desk is a fully-functional MERN Stack App
 - RESTful API is implemented.
@@ -49,10 +52,5 @@ REACT_APP_BASE_URL = 'https://backend_end_app_url.com'
 npm install
 npm start
 ```
-My frontend implementation
-- [Github](https://github.com/Dikshant09/supportdesk-frontend)
-- [Live](https://support-desk-d5y5.onrender.com/)
-
-My backend implementation
-- [Github](https://github.com/Dikshant09/supportdesk-backend)
-- [Live](https://support-desk-api-gee5.onrender.com/api/tickets/)
+- [Live Frontend](https://support-desk-d5y5.onrender.com/)
+- [Live Backend](https://support-desk-api-gee5.onrender.com/api/tickets/)
