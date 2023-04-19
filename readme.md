@@ -52,5 +52,5 @@ REACT_APP_BASE_URL = 'https://backend_end_app_url.com'
 npm install
 npm start
 ```
-- [Live Frontend](https://support-desk-d5y5.onrender.com/)
-- [Live Backend](https://support-desk-api-gee5.onrender.com/api/tickets/)
+- [Live Frontend](https://your-supportdesk.vercel.app/)
+- [Live Backend](https://rest-api-support-desk.onrender.com/api/tickets)
